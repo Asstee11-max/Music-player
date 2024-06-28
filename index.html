@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Music Player</h1>
+        <div class="music-player text-center p-4 rounded">
+            <audio id="audio" controls class="w-100 mb-3"></audio>
+            <div class="mb-3">
+                <input type="file" id="fileInput" accept=".mp3" multiple class="form-control-file">
+            </div>
+            <div class="mt-3">
+                <button id="prev" class="btn btn-outline-primary btn-lg mx-2"><i class="bi bi-skip-backward-fill"></i></button>
+                <button id="play" class="btn btn-outline-success btn-lg mx-2"><i class="bi bi-play-fill"></i></button>
+                <button id="next" class="btn btn-outline-primary btn-lg mx-2"><i class="bi bi-skip-forward-fill"></i></button>
+            </div>
+            <div id="playlist" class="list-group mt-3"></div>
+            <div class="equalizer mt-5">
+                <h3>Equalizer</h3>
+                <div class="form-group row">
+                    <label for="bass" class="col-sm-2 col-form-label">Bass</label>
+                    <div class="col-sm-10">
+                        <input type="range" id="bass" min="-10" max="10" step="1" value="0" class="form-control-range">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="mid" class="col-sm-2 col-form-label">Mid</label>
+                    <div class="col-sm-10">
+                        <input type="range" id="mid" min="-10" max="10" step="1" value="0" class="form-control-range">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="treble" class="col-sm-2 col-form-label">Treble</label>
+                    <div class="col-sm-10">
+                        <input type="range" id="treble" min="-10" max="10" step="1" value="0" class="form-control-range">
+                    </div>
+                </div>
+            </div>
+            <canvas id="visualizer" class="w-100 mt-5" height="100"></canvas>
+            <div class="mt-5">
+                <h3>Lyrics</h3>
+                <textarea id="lyrics" class="form-control" rows="4" placeholder="Lyrics will appear here..." readonly></textarea>
+            </div>
+            <div class="form-check form-switch mt-3">
+                <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
